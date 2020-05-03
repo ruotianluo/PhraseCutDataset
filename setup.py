@@ -13,4 +13,15 @@ setup(
         # 'requests==2.22.0',
         'gdown==3.9.0',
     ],
+    package_data={
+        # If any package contains *.yml, include them:
+        # '': ['*.yml'],
+    },
+    entry_points={
+        # 'console_scripts': [
+        #     'smit=fabric.cluster.submit:main',
+        #     'sow=fabric.deploy.sow:main',
+        # ]
+    },
+    zip_safe=False  # accessing config files without using pkg_resources.
 )
