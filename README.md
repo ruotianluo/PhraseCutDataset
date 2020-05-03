@@ -46,21 +46,19 @@ More dataset statistics and data collection pipeline details can be found in the
 conda create -n phrasecut_env python=3.7
 conda activate phrasecut_env
 
-# install dependencies. Python3 required
-pip install matplotlib==3.1.1 numpy==1.17.4 pillow==6.1.0 requests==2.22.0 gdown==3.9.0
-
 # clone our repo
-git clone https://github.com/ChenyunWu/PhraseCutDataset.git
+git clone https://github.com/ruotianluo/PhraseCutDataset.git
 cd PhraseCutDataset
+python setup.py install develop
 
 # download the miniv split
-python download_dataset.py -s miniv
+python -m phrasecutapi.download_dataset -s miniv
 
 # evaluate a random guess baseline on miniv
-python evaluate.py -n box_rand
+python -m phrasecutapi.evaluate -n box_rand
 
 # visualize the result
-python visualize.py -p output/baselines/box_rand/miniv/predictions/
+python -m phrasecutapi.visualize -p phrasecutapi/output/baselines/box_rand/miniv/predictions/
 ```
 
 Prediction results will be saved as PNG images in **output/baselines/box_rand/miniv/predictions/**
@@ -100,7 +98,8 @@ pip install matplotlib==3.1.1 numpy==1.17.4 pillow==6.1.0 requests==2.22.0 gdown
 We suggest you clone this repository to folder `PhraseCutDataset`: 
 
 ```
-git clone https://github.com/ChenyunWu/PhraseCutDataset.git
+git clone https://github.com/ruotianluo/PhraseCutDataset.git
+python setup.py build develop
 ```
 And download all the dataset files into `PhraseCutDataset/data/VGPhraseCut_v0/` (as default).
 
